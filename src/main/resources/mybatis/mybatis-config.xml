@@ -7,5 +7,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <setting name="defaultFetchSize" value="100"/>
         <setting name="defaultStatementTimeout" value="30"/>
+        <!-- Throw exception when auto property mapping failed -->
+        <setting name="autoMappingUnknownColumnBehavior" value="FAILING"/>
     </settings>
 </configuration>

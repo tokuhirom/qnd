@@ -37,11 +37,13 @@ dependencies {
     compile('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-validation')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-test')
 
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1'
+    compile 'org.mybatis:mybatis:3.4.1'
     compile 'org.webjars.npm:bootstrap:3.3.5'
 
     compile 'org.mybatis:mybatis-typehandlers-jsr310:1.0.1'

@@ -1,7 +1,9 @@
 CREATE TABLE user (
   user_id       BIGINT       NOT NULL AUTO_INCREMENT,
+  display_name  VARCHAR(255) NOT NULL,
   auth_provider VARCHAR(255) NOT NULL,
   auth_data     VARCHAR(255) NOT NULL,
+  priv          ENUM ('ADMIN', 'NORMAL'),
   created       DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated       DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (user_id)
@@ -43,4 +45,15 @@ CREATE TABLE host (
   updated DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (host_id),
   CONSTRAINT FOREIGN KEY farm_farm_id (farm_id) REFERENCES farm (farm_id)
+);
+
+CREATE TABLE service_user (
+  service_id BIGINT   NOT NULL,
+  user_id    BIGINT   NOT NULL,
+  priv       ENUM ('DEPLOYER', 'ADMIN'),
+  created    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (service_id, user_id),
+  CONSTRAINT FOREIGN KEY service_service_id (service_id) REFERENCES service (service_id),
+  CONSTRAINT FOREIGN KEY user_user_id (user_id) REFERENCES user (user_id)
 );

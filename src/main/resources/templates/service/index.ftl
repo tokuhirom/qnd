@@ -16,7 +16,7 @@
     </tr>
 <#list services as service>
     <tr>
-        <td>${service.serviceId!"-"}</td>
+        <td><a href="/service/${service.serviceId}">${service.serviceId!"-"}</a></td>
         <td>${service.name}</td>
         <td>${service.created!"-"}</td>
     </tr>
